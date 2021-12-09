@@ -1,1 +1,16 @@
+/* Create Self Signed Certificate */
+/* https://dzone.com/articles/create-a-self-signed-ssl-certificate-using-openssl */
+openssl genrsa -des3 -out server.key 2048
+openssl req -new -key server.key -out server.csr
+openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 
+/* Create Keystore PKCS12 format */
+/* https://dzone.com/articles/how-to-create-a-keystore-in-pkcs12-format */
+cat server.key > server.pem
+cat server.crt >> server.pem
+openssl pkcs12 -export -in server.pem -out keystore.pkcs12
+
+/* Generate Key Store */
+keytool -genkey -alias server -validity 365 -keyalg RSA -keystore keystore
+
+/* https://www.geeksforgeeks.org/difference-between-truststore-and-keystore-in-java/ */
