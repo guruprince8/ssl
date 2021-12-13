@@ -15,3 +15,16 @@ openssl pkcs12 -export -in server.pem -out keystore.pkcs12
 keytool -genkey -alias server -validity 365 -keyalg RSA -keystore keystore
 
 /* https://www.geeksforgeeks.org/difference-between-truststore-and-keystore-in-java/ */
+
+https://stackoverflow.com/questions/7812444/how-do-i-import-an-existing-java-keystore-jks-file-into-a-java-installation
+
+keytool -list -v -keystore D:\86\PRPCPersonalEdition\jre1.8.0_121\lib\security\cacerts
+
+keytool -export -alias tomcat92 -file D:\keystore\tomcat92 -keystore D:\keystore\tomcat92.jks
+
+keytool -import -alias tomcat92 -file D:\keystore\tomcat92 -keystore D:\86\PRPCPersonalEdition\jre1.8.0_121\lib\security\cacerts
+
+
+>keytool -importkeystore -srckeystore D:\keystore\tomcat92.jks -destkeystore D:\86\PRPCPersonalEdition\jre1.8.0_121\lib\security\cacerts
+changeit
+tomcat92
