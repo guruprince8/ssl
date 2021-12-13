@@ -11,6 +11,7 @@ cat server.crt >> server.pem
 openssl pkcs12 -export -in server.pem -out keystore.pkcs12
 
 /* Generate Key Store */
+/* https://docs.oracle.com/cd/E29805_01/server.230/es_admin/src/tadm_ssl_jetty_keystore.html */
 keytool -genkey -alias server -validity 365 -keyalg RSA -keystore keystore
 
 /* https://www.geeksforgeeks.org/difference-between-truststore-and-keystore-in-java/ */
