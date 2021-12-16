@@ -36,3 +36,5 @@ keytool -import -alias tomcat92 -file D:\keystore\tomcat92 -keystore D:\86\PRPCP
 keytool -importkeystore -srckeystore D:\keystore\tomcat92.jks -destkeystore D:\86\PRPCPersonalEdition\jre1.8.0_121\lib\security\cacerts
 changeit
 tomcat92
+
+set "JAVA_OPTS=%JAVA_OPTS% -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Djavax.net.debug=ssl:handshake"
