@@ -13,6 +13,12 @@ openssl pkcs12 -export -in server.pem -out keystore.pkcs12
 /* Generate Key Store */
 /* https://docs.oracle.com/cd/E29805_01/server.230/es_admin/src/tadm_ssl_jetty_keystore.html */
 keytool -genkey -alias server -validity 365 -keyalg RSA -keystore keystore
+keytool -genkeypair -keyalg RSA -keysize 2048 -alias stackoverflow -dname "CN=stackoverflow,OU=Hakan,O=Hakan,C=NL" -ext "SAN:c=DNS:localhost,IP:127.0.0.1" -validity 3650 -keystore identity.jks -storepass secret -keypass secret -deststoretype pkcs12
+
+CN=Guru E, OU=Pega, O=CTS, L=Kavali, ST=AP, C=IN
+
+
+keytool -genkeypair -keyalg RSA -keysize 2048 -alias stackoverflow -dname "CN=stackoverflow,OU=Hakan,O=Hakan,C=NL" -ext "SAN:c=DNS:localhost,IP:127.0.0.1" -validity 3650 -keystore identity.jks -storepass secret -keypass secret -deststoretype pkcs12
 
 /* https://www.geeksforgeeks.org/difference-between-truststore-and-keystore-in-java/ */
 
