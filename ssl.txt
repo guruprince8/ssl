@@ -38,3 +38,6 @@ changeit
 tomcat92
 
 set "JAVA_OPTS=%JAVA_OPTS% -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Djavax.net.debug=ssl:handshake"
+
+/* Adding tomcat ssl settings *
+https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html
