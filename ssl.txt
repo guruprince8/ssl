@@ -46,3 +46,10 @@ https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html
 keytool -genkey -alias tomcat94 -validity 365 -keyalg RSA -keystore C:\guru\87\tomcat94.jks -ext "SAN:c=DNS:localhost,IP:127.0.0.1,IP:192.168.1.7,DNS:guekamba-mh0zp.local"
 
 The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format using "keytool -importkeystore -srckeystore C:\guru\87\tomcat94.jks -destkeystore C:\guru\87\tomcat94.jks -deststoretype pkcs12".
+
+<Connector
+           protocol="org.apache.coyote.http11.Http11NioProtocol"
+           port="8443" maxThreads="200"
+           scheme="https" secure="true" SSLEnabled="true"
+           keystoreFile="C:\guru\87\tomcat94.jks" keystorePass="tomcat94"
+           clientAuth="false" sslProtocol="TLS"/>
