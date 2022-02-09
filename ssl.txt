@@ -41,3 +41,8 @@ set "JAVA_OPTS=%JAVA_OPTS% -Djava.protocol.handler.pkgs=org.apache.catalina.webr
 
 /* Adding tomcat ssl settings *
 https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html
+
+
+keytool -genkey -alias tomcat94 -validity 365 -keyalg RSA -keystore C:\guru\87\tomcat94.jks -ext "SAN:c=DNS:localhost,IP:127.0.0.1,IP:192.168.1.7,DNS:guekamba-mh0zp.local"
+
+The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format using "keytool -importkeystore -srckeystore C:\guru\87\tomcat94.jks -destkeystore C:\guru\87\tomcat94.jks -deststoretype pkcs12".
