@@ -4,6 +4,9 @@ openssl genrsa -des3 -out server.key 2048
 openssl req -new -key server.key -out server.csr
 openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 
+/* list keystore contents */
+https://www.sslshopper.com/article-most-common-java-keytool-keystore-commands.html
+
 /* Create Keystore PKCS12 format */
 /* https://dzone.com/articles/how-to-create-a-keystore-in-pkcs12-format */
 cat server.key > server.pem
