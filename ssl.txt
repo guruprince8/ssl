@@ -4,6 +4,14 @@ openssl genrsa -des3 -out server.key 2048
 openssl req -new -key server.key -out server.csr
 openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 
+openssl genrsa -out tomcat2.key 2048
+openssl rsa -in tomcat1.key -pubout -out tomcat1pub.key
+openssl req -new -key tomcat1.key -out tomcat1.csr
+openssl req -text -in tomcat2.csr -noout -verify
+openssl x509 -in tomcat2.csr -out tomcat2.crt -req -signkey tomcat2.key -days 365
+keytool -import -alias alias1 -file tomcat2.crt -keypass keypass -keystore yourkeystore.jks -storepass Hello1
+keytool -list -keystore yourkeystore.jks -storepass Hello1
+
 /* list keystore contents */
 https://www.sslshopper.com/article-most-common-java-keytool-keystore-commands.html
 
